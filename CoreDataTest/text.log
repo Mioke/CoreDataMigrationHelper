@@ -1,0 +1,45 @@
+2024-04-16 19:03:52:176 [ChatMarkAsUnreadStatusManager] calculateMarkAsUnreadStatus(withChatSettings:actionModels:) » Calculate Mark Unread res: (21) []
+2024-04-16 19:03:52:235 [ChatManager] calculateHasUnreadCountChatBadgeCount() » [Badge Count] [has unread count] 0 from chat provider
+2024-04-16 19:03:52:245 [ChatManager] noUnreadCountAndNotMutedChatProducer() » [Badge Count] Valid clear chat : (74)
+2024-04-16 19:03:52:245 [ChatManager] calculateMarkAsUnreadCount() » [Badge Count] [mark as unread] 0
+2024-04-16 19:03:52:247 [ChatManager] calculateFollowedThreadsUnreadCount() » [Badge Count] [has thread unread count] 0 from chatThreadProvider
+2024-04-16 19:03:52:248 [ChatManager] calculateBadgeCount() » [Badge Count] [Total] 0
+2024-04-16 19:03:53:043 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:6985733495329389631
+2024-04-16 19:03:53:044 [TCPProvider] _subscribe(_:) » 
+  cmd: s2c.contactOnlineStatus(0x0505) 
+  id: 6985733495329389631
+  body: {"ws":[{"als":1713265200, "s":3, "t":1713265430, "u":151454, "l":0, "a":0}], "i":6985733495329389631, "us":[]}
+2024-04-16 19:03:53:048 [ModelChangeNotifier] receiveChangeEvent(_:) » 
+PlatformOnlineStatus-0-1-0
+2024-04-16 19:03:53:620 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:8853258358472483320
+2024-04-16 19:03:53:622 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:1303781634438555409
+2024-04-16 19:03:53:624 [TCPProvider] _subscribe(_:) » 
+  cmd: s2c.contactOnlineStatus(0x0505) 
+  id: 8853258358472483320
+  body: {"us":[], "i":8853258358472483320, "ws":[{"a":0, "als":1713265200, "t":1713265280, "l":0, "s":2, "u":338820}]}
+2024-04-16 19:03:53:624 [TCPProvider] _subscribe(_:) » 
+  cmd: s2c.contactOnlineStatus(0x0505) 
+  id: 1303781634438555409
+  body: {"ws":[{"als":1713265200, "l":0, "a":0, "s":3, "t":1713265430, "u":355844}], "us":[], "i":1303781634438555409}
+2024-04-16 19:03:53:636 [ModelChangeNotifier] receiveChangeEvent(_:) » 
+PlatformOnlineStatus-0-1-0
+2024-04-16 19:03:53:643 [ModelChangeNotifier] receiveChangeEvent(_:) » 
+PlatformOnlineStatus-0-1-0
+2024-04-16 19:03:55:919 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:1565231478129287753
+2024-04-16 19:03:55:920 [TCPProvider] _subscribe(_:) » 
+  cmd: s2c.contactOnlineStatus(0x0505) 
+  id: 1565231478129287753
+  body: {"us":[], "i":1565231478129287753, "ws":[{"t":1713265428, "u":59259, "l":0, "a":0, "s":3, "als":1713265200}]}
+2024-04-16 19:03:55:932 [ModelChangeNotifier] receiveChangeEvent(_:) » 
+PlatformOnlineStatus-0-1-0
+2024-04-16 19:03:56:762 [HeartbeatManager] sendHeartbeatSignal(status:) » status: away
+2024-04-16 19:03:56:840 [TCPProvider] send(_:encodedRequest:) » success(cmd:c2s.heartbeat(0x0008), id:5052440598681818756)
+2024-04-16 19:03:56:841 [TCPProvider] handleReply(packet:) » 
+2024-04-16 19:03:56:843 [HeartbeatManager] onSuccess() » success. took 0.08033502101898193
+2024-04-16 19:03:56:843 [NetworkStatusService] currentNetworkRTT » [SeaTalkProtocol] set currentNetworkRTT: 126
+2024-04-16 19:03:58:529 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:7977287379794316514
+2024-04-16 19:03:58:531 [TCPProvider] handleReceivedPacket(_:) » cmd:s2c.contactOnlineStatus(0x0505), id:6116238333084395647
+2024-04-16 19:03:58:532 [TCPProvider] _subscribe(_:) » 
+  cmd: s2c.contactOnlineStatus(0x0505) 
+  id: 7977287379794316514
+  body: {"ws":[{"als":1713265200, "u":119981, "s":4, "t":1713265434, "a":0, "l":0}], "i":7977287379794316514, "us":[]}
