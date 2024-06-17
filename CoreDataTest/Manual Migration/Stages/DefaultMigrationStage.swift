@@ -47,6 +47,12 @@ class DefaultMigrationStage: ManualStage {
   
   func fallback() {
     // can simplify to delete the temporary store, then recreate one.
+    do {
+      try FileManager.default.removeItem(at: targetURL)
+      _ = try MigrateUtils.createContext(using: targetModel, at: targetURL, readOnly: true)
+    } catch {
+      print("\(Self.stageType) stage fallback failed: \(error)")
+    }
   }
 }
 

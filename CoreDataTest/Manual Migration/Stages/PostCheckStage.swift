@@ -21,10 +21,10 @@ class PostCheckStage: ManualStage {
   }
   
   func process() throws {
-    
+    _ = try MigrateUtils.createContext(using: coreDataModel, at: targetURL)
   }
   
   func fallback() {
-    
+    // nop
   }
 }

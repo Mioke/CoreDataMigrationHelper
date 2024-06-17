@@ -370,7 +370,7 @@ class ViewController: UIViewController, ManualMigratorEventDelegate {
           let newModel = NSManagedObjectModel(contentsOf: newModelURL)
     else { fatalError() }
     
-    let migrator = ManualMigrator(from: oldModel, to: newModel, sourceStoreURL: AppDelegate.current.storeURL)
+    let migrator = ManualMigrator(from: oldModel, to: newModel, sourceStoreURL: AppDelegate.current.storeURL, migrationVersion: 1)
     migrator.eventDelegate = self
     DispatchQueue.global().async {
       migrator.start()

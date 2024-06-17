@@ -23,13 +23,13 @@
 		AB754D022C05EE5800E09C4D /* CustomMigrationStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D012C05EE5800E09C4D /* CustomMigrationStage.swift */; };
 		AB754D042C05F00B00E09C4D /* PostCheckStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D032C05F00B00E09C4D /* PostCheckStage.swift */; };
 		AB754D062C05F2B700E09C4D /* CleanStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D052C05F2B700E09C4D /* CleanStage.swift */; };
-		AB754D092C0EABF400E09C4D /* MigrationMeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB754D072C0EABF300E09C4D /* MigrationMeta.xcdatamodeld */; };
 		AB754D0C2C0EC79C00E09C4D /* MigrateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D0B2C0EC79C00E09C4D /* MigrateRecord.swift */; };
 		AB754D0E2C1019BF00E09C4D /* MigrateProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D0D2C1019BF00E09C4D /* MigrateProgress.swift */; };
 		AB754D102C10746F00E09C4D /* ManualMigration+Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB754D0F2C10746E00E09C4D /* ManualMigration+Definition.swift */; };
 		ABB45CFC2BCFC31700B30B79 /* data.gif in Resources */ = {isa = PBXBuildFile; fileRef = ABB45CFB2BCFC31700B30B79 /* data.gif */; };
 		ABB45D032BCFD34D00B30B79 /* text.log in Resources */ = {isa = PBXBuildFile; fileRef = ABB45D022BCFD34D00B30B79 /* text.log */; };
 		ABB45D0E2BD1370E00B30B79 /* v1_to_v2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = ABB45D0D2BD1370E00B30B79 /* v1_to_v2.xcmappingmodel */; };
+		ABB6E8262C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABB6E8242C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,13 +71,13 @@
 		AB754D012C05EE5800E09C4D /* CustomMigrationStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMigrationStage.swift; sourceTree = "<group>"; };
 		AB754D032C05F00B00E09C4D /* PostCheckStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCheckStage.swift; sourceTree = "<group>"; };
 		AB754D052C05F2B700E09C4D /* CleanStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanStage.swift; sourceTree = "<group>"; };
-		AB754D082C0EABF300E09C4D /* MigrationMeta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MigrationMeta.xcdatamodel; sourceTree = "<group>"; };
 		AB754D0B2C0EC79C00E09C4D /* MigrateRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrateRecord.swift; sourceTree = "<group>"; };
 		AB754D0D2C1019BF00E09C4D /* MigrateProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrateProgress.swift; sourceTree = "<group>"; };
 		AB754D0F2C10746E00E09C4D /* ManualMigration+Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManualMigration+Definition.swift"; sourceTree = "<group>"; };
 		ABB45CFB2BCFC31700B30B79 /* data.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = data.gif; sourceTree = "<group>"; };
 		ABB45D022BCFD34D00B30B79 /* text.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.log; sourceTree = "<group>"; };
 		ABB45D0D2BD1370E00B30B79 /* v1_to_v2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = v1_to_v2.xcmappingmodel; sourceTree = "<group>"; };
+		ABB6E8252C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MigrationMeta.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 				AB754CFC2C05ECDD00E09C4D /* Stages */,
 				AB754CFA2C05CC3200E09C4D /* ManualMigrator.swift */,
 				AB754D0F2C10746E00E09C4D /* ManualMigration+Definition.swift */,
-				AB754D072C0EABF300E09C4D /* MigrationMeta.xcdatamodeld */,
+				ABB6E8242C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodeld */,
 			);
 			path = "Manual Migration";
 			sourceTree = "<group>";
@@ -332,6 +332,7 @@
 				AB754CFB2C05CC3200E09C4D /* ManualMigrator.swift in Sources */,
 				AB754D002C05EE0800E09C4D /* DefaultMigrationStage.swift in Sources */,
 				AB138A732BC3C86000C40A94 /* CoreDataTest.xcdatamodeld in Sources */,
+				ABB6E8262C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodeld in Sources */,
 				AB754CFE2C05ECF500E09C4D /* CreateTemporaryStoreStage.swift in Sources */,
 				AB138A6D2BC3C86000C40A94 /* ViewController.swift in Sources */,
 				AB754D042C05F00B00E09C4D /* PostCheckStage.swift in Sources */,
@@ -343,7 +344,6 @@
 				AB754D022C05EE5800E09C4D /* CustomMigrationStage.swift in Sources */,
 				AB754D0C2C0EC79C00E09C4D /* MigrateRecord.swift in Sources */,
 				AB754D0E2C1019BF00E09C4D /* MigrateProgress.swift in Sources */,
-				AB754D092C0EABF400E09C4D /* MigrationMeta.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,14 +703,14 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		AB754D072C0EABF300E09C4D /* MigrationMeta.xcdatamodeld */ = {
+		ABB6E8242C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				AB754D082C0EABF300E09C4D /* MigrationMeta.xcdatamodel */,
+				ABB6E8252C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodel */,
 			);
-			currentVersion = AB754D082C0EABF300E09C4D /* MigrationMeta.xcdatamodel */;
+			currentVersion = ABB6E8252C1AFAD700FD5DD8 /* MigrationMeta.xcdatamodel */;
 			name = MigrationMeta.xcdatamodeld;
-			path = "/Users/kelanjiang/Documents/ShopeeProjects/CoreDataTest/CoreDataTest/Manual Migration/MigrationMeta.xcdatamodeld";
+			path = "/Users/kelanjiang/Documents/GitHub/CoreDataMigrationHelper/CoreDataTest/Manual Migration/MigrationMeta.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

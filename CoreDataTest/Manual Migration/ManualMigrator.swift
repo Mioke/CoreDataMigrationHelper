@@ -10,7 +10,7 @@ import CoreData
 
 public class ManualMigrator: ManualMigratorEventReceiver {
   
-  static let currentVersion: Int = 1
+  let currentVersion: Int
   
   // @ThreadSafe
   public var state: State = .ready {
@@ -39,7 +39,13 @@ public class ManualMigrator: ManualMigratorEventReceiver {
   
   public private(set) var customizedEntities: [String: Any] = [:]
   
-  public init(from oldModel: NSManagedObjectModel, to newModel: NSManagedObjectModel, sourceStoreURL: URL) {
+  public init(
+    from oldModel: NSManagedObjectModel,
+    to newModel: NSManagedObjectModel,
+    sourceStoreURL: URL,
+    migrationVersion: Int
+  ) {
+    self.currentVersion = migrationVersion
     self.sourceStoreURL = sourceStoreURL
     self.oldModel = oldModel
     self.newModel = newModel
@@ -77,7 +83,7 @@ public class ManualMigrator: ManualMigratorEventReceiver {
   private func didSetRunningStage(newStage: ManualStage?, oldStage: ManualStage?) {
     guard let meta = try? self.meta else { return }
     do {
-      try MigrateProgress.update(version: Self.currentVersion, in: meta) { progress in
+      try MigrateProgress.update(version: currentVersion, in: meta) { progress in
         if let runningStage = newStage {
           progress.processingStage = type(of: runningStage).stageType
         } else {
@@ -94,7 +100,7 @@ public class ManualMigrator: ManualMigratorEventReceiver {
   }
   
   private func recoverFromPreviousMeta(_ meta: NSManagedObjectContext) throws {
-    let progress = try MigrateProgress.fetchOrCreate(with: Self.currentVersion, in: meta)
+    let progress = try MigrateProgress.fetchOrCreate(with: currentVersion, in: meta)
     
     if let finishedStage = progress.finishedStage,
        let lastStage = stages.max(by: { type(of: $0).stageType.rawValue < type(of: $1).stageType.rawValue }),
@@ -137,6 +143,8 @@ public class ManualMigrator: ManualMigratorEventReceiver {
         sourceReader: reader,
         targetURL: temporaryStoreURL, 
         meta: meta),
+      PostCheckStage(targetURL: temporaryStoreURL, coreDataModel: newModel),
+      CleanStage(sourceURL: sourceStoreURL, temporaryURL: temporaryStoreURL),
     ]
     stages.forEach { $0.eventReceiver = self }
   }
