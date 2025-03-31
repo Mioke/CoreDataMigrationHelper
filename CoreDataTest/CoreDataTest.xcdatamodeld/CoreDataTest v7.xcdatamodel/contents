@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
+        <attribute name="chatID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="lastMessageOf" inverseEntity="Message"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="User" inverseName="inChat" inverseEntity="User"/>
+    </entity>
+    <entity name="Message" representedClassName=".Message" syncable="YES" codeGenerationType="class">
+        <attribute name="chatID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="content" attributeType="Binary"/>
+        <attribute name="messageID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="options" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <relationship name="lastMessageOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="lastMessage" inverseEntity="Chat"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ThreadReply" inverseName="rootMessage" inverseEntity="ThreadReply"/>
+        <fetchIndex name="byTimestamp" partialIndexPredicate="timestamp != nil">
+            <fetchIndexElement property="timestamp" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="ThreadReply" representedClassName="ThreadReply" syncable="YES" codeGenerationType="class">
+        <attribute name="messageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rootMessageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="rootMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="replies" inverseEntity="Message"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="inChat" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Chat" inverseName="users" inverseEntity="Chat"/>
+    </entity>
+</model>

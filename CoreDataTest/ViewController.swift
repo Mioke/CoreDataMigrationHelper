@@ -13,9 +13,14 @@ class ViewController: UIViewController, ManualMigratorEventDelegate {
   
   @IBOutlet weak var textView: UITextView!
   
+  var profiler: SQLiteProfiler!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    
+//    profiler = .init(url: AppDelegate.current.storeURL)
+//    profiler.start()
   }
   
   
@@ -337,6 +342,25 @@ class ViewController: UIViewController, ManualMigratorEventDelegate {
 //    try! insert(chatID: 1, messageCount: 100_000)
     try! insert(chatID: 2, messageCount: 10)
 //    try! insert(chatID: 3, messageCount: 10)
+    
+    let context = AppDelegate.current.persistentContainer.viewContext
+    let chat = try! context.fetch(Chat.fetchRequest()).first!
+    
+    for uid in 1...10 {
+      let user = User(context: context)
+      user.name = "TestUser \(uid)"
+      user.uid = Int64(uid)
+      user.inChat = NSSet(set: user.inChat?.adding(chat) ?? [chat])
+      
+//      let media = Media(context: context)
+//      media.chatID = Int64(uid)
+//      media.path = "path/\(uid)"
+      
+      let reply = ThreadReply(context: context)
+      reply.messageID = Int64(uid)
+    }
+    
+    try! context.save()
   }
   
   private func insert(chatID: Int64, messageCount: Int) throws {
@@ -370,6 +394,8 @@ class ViewController: UIViewController, ManualMigratorEventDelegate {
           let newModel = NSManagedObjectModel(contentsOf: newModelURL)
     else { fatalError() }
     
+//    print("Migrating from \(oldModel.versionIdentifiers.first ?? "unknown" as AnyHashable) to \(newModel.versionIdentifiers.first ?? "unknown" as AnyHashable)")
+    
     let migrator = ManualMigrator(from: oldModel, to: newModel, sourceStoreURL: AppDelegate.current.storeURL, migrationVersion: 1)
     migrator.eventDelegate = self
     DispatchQueue.global().async {
@@ -382,6 +408,40 @@ class ViewController: UIViewController, ManualMigratorEventDelegate {
   func didReceive(event: ManualMigrator.Event) {
     NSLog("receive event: \(event)")
   }
+  
+  
+  @IBAction func clickCheckTrace(_ sender: Any) {
+//    profiler.tryQuery()
+    
+    let context = AppDelegate.current.persistentContainer.viewContext
+    let request = Message.fetchRequest()
+    let results = try! context.fetch(request)
+    print(results)
+  }
+  
+  @IBAction func clickReadMeta(_ sender: Any) {
+    printCoreDataMeta()
+  }
+  
+  func printCoreDataMeta() {
+    let exec = DatabaseExecutor.init(url: AppDelegate.current.storeURL)
+    try! exec.connectIfNeeded()
+    let result = try! exec.execute("SELECT Z_PLIST FROM Z_METADATA")
+    guard let first = result.first, let data = first["Z_PLIST"] as? Data else { return }
+    
+    let plist = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+    print("Z_PLIST:\n", plist)
+    
+    let modelCache = try! exec.execute("SELECT Z_CONTENT FROM Z_MODELCACHE")
+    guard let first = modelCache.first, let data = first["Z_CONTENT"] as? Data else { return }
+    
+    let stringDesc = String(data: data, encoding: .utf8)
+    print(stringDesc as Any) // not readable.
+//
+//    let modelXML = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil)
+//    print("Model Cache: \n", modelXML)
+  }
+  
 }
 
 public func scope(_ name: String, action: () -> Void) {

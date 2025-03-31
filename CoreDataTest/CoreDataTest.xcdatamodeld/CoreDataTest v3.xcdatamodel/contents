@@ -6,10 +6,15 @@
         <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="lastMessageOf" inverseEntity="Message"/>
     </entity>
     <entity name="Message" representedClassName=".Message" syncable="YES" codeGenerationType="class">
-        <attribute name="chatID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="chatID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="content" attributeType="Binary"/>
         <attribute name="messageID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="options" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
         <relationship name="lastMessageOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="lastMessage" inverseEntity="Chat"/>
+        <fetchIndex name="byTimestamp">
+            <fetchIndexElement property="timestamp" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
 </model>
