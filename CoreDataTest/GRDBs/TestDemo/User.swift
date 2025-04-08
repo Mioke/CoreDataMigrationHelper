@@ -8,9 +8,8 @@
 import Foundation
 import GRDB
 
-class _ZUser: SeaTalkDatabaseRecord {
+class _ZUser: NSObject, SeaTalkDatabaseRecord {
   static var introducedVersion: SeaTalkDatabase.Version = .v1
-  static var deprecatedVersion: SeaTalkDatabase.Version? = nil
   
   static var migrateHanlder: [SeaTalkDatabase.Version : (GRDB.Database) throws -> Void] = [
     .v1: { db in

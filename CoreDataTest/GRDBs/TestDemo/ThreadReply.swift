@@ -8,10 +8,17 @@
 import Foundation
 import GRDB
 
-class ZThreadReply: SeaTalkDatabaseRecord {
-  static var introducedVersion: SeaTalkDatabase.Version = .v2
+extension ZThreadReply {
+  static let rootMessageRelationship: RelationshipKind<ZThreadReply, _ZMessage> = .toOne(
+    relationshipName: "rootMessage",
+    keyPath: \.rootMessageValue,
+    destination: \.rootMessage,
+    deleteRule: .nullify)
+}
+
+class ZThreadReply: NSObject, SeaTalkDatabaseRecord {
   
-  static var deprecatedVersion: SeaTalkDatabase.Version? = nil
+  static var introducedVersion: SeaTalkDatabase.Version = .v2
   
   static var migrateHanlder: [SeaTalkDatabase.Version : (GRDB.Database) throws -> Void] = [
     .v2: { db in
@@ -19,15 +26,23 @@ class ZThreadReply: SeaTalkDatabaseRecord {
     }
   ]
   
-  static var coredataModelDisplayName: String = "ZTHREADREPLY"
+  static var databaseTableName: String = "ZTHREADREPLY"
+  static var coredataModelDisplayName: String = "ThreadReply"
   
-  static var relationships: [OpaqueRelationship] = []
+  static var relationships: [OpaqueRelationship] = [
+    .init(relationship: ZThreadReply.rootMessageRelationship, inverse: _ZMessage.repliesRelationship)
+  ]
   
-  var _PK: Int64
-  var _ENT: Int64
-  var _OPT: Int64
-  var messageID: Int64
-  var rootMessageID: Int64
+  var _PK: Int64 = 0
+  var _ENT: Int64 = 0
+  var _OPT: Int64 = 0
+  var messageID: Int64 = 0
+  var rootMessageID: Int64 = 0
+  
+  var rootMessageValue: Int64?
+  var rootMessage: _ZMessage?
+  
+  override init() { }
   
   enum Column: String, ColumnExpression {
     case _PK = "Z_PK"
@@ -35,6 +50,7 @@ class ZThreadReply: SeaTalkDatabaseRecord {
     case _OPT = "Z_OPT"
     case messageID = "ZMESSAGEID"
     case threadRootMessageID = "ZROOTMESSAGEID"
+    case rootMessageValue = "ZROOTMESSAGE"
   }
   
   required init(row: GRDB.Row) throws {
@@ -43,6 +59,7 @@ class ZThreadReply: SeaTalkDatabaseRecord {
     _OPT = row[Column._OPT]
     messageID = row[Column.messageID]
     rootMessageID = row[Column.threadRootMessageID]
+    rootMessageValue = row[Column.rootMessageValue]
   }
   
   func encode(to container: inout GRDB.PersistenceContainer) throws {
@@ -51,6 +68,7 @@ class ZThreadReply: SeaTalkDatabaseRecord {
     container[Column._OPT] = _OPT
     container[Column.messageID] = messageID
     container[Column.threadRootMessageID] = rootMessageID
+    container[Column.rootMessageValue] = rootMessageValue
   }
   
   

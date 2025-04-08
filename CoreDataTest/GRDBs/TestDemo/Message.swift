@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-class _ZMessage: TableRecord {
+class _ZMessage: NSObject, TableRecord {
   
   static var databaseTableName: String { "ZMESSAGE" }
   
@@ -27,6 +27,8 @@ class _ZMessage: TableRecord {
   var lastMessageOfKey: Int64?
   var lastMessageOf: _ZChat?
   
+  var replies: Set<ZThreadReply>?
+  
   enum Column: String, ColumnExpression {
     case _PK = "Z_PK"
     case _ENT = "Z_ENT"
@@ -40,7 +42,7 @@ class _ZMessage: TableRecord {
     case lastMessageOfKey = "ZLASTMESSAGEOF"
   }
   
-  init() {
+  override init() {
     
   }
   
@@ -76,7 +78,6 @@ extension _ZMessage: SeaTalkDatabaseRecord {
   static var introducedVersion: SeaTalkDatabase.Version {
     .v1
   }
-  static var deprecatedVersion: SeaTalkDatabase.Version? = nil
   
   static var migrateHanlder: [SeaTalkDatabase.Version : (GRDB.Database) throws -> Void] {
     [
@@ -93,7 +94,8 @@ extension _ZMessage: SeaTalkDatabaseRecord {
   }
   
   static var relationships: [OpaqueRelationship] = [
-    .init(relationship: lastMessageOfRelationship, inverse: _ZChat.lastMessageRelationship)
+    .init(relationship: lastMessageOfRelationship, inverse: _ZChat.lastMessageRelationship),
+    .init(relationship: repliesRelationship, inverse: ZThreadReply.rootMessageRelationship)
   ]
   
   static let lastMessageOfRelationship: RelationshipKind = .toOne(
@@ -102,5 +104,10 @@ extension _ZMessage: SeaTalkDatabaseRecord {
     destination: \_ZMessage.lastMessageOf,
     deleteRule: .nullify)
   
+  static let repliesRelationship: RelationshipKind = .toMany(
+    relationshipName: "replies",
+    destinationPrimaryKeyPath: \ZThreadReply.rootMessageValue,
+    destination: \_ZMessage.replies,
+    deleteRule: .nullify)
 }
 

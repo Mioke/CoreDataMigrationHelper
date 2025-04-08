@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-final class _ZChat: TableRecord {
+final class _ZChat: NSObject, TableRecord {
   static var databaseTableName: String { "ZCHAT" }
   
   var chatID: Int64 = 0
@@ -57,7 +57,6 @@ extension _ZChat: SeaTalkDatabaseRecord {
   static var introducedVersion: SeaTalkDatabase.Version {
     .v1
   }
-  static var deprecatedVersion: SeaTalkDatabase.Version? = nil
   
   static var migrateHanlder: [SeaTalkDatabase.Version : (GRDB.Database) throws -> Void] {
     [

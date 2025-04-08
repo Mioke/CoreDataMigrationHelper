@@ -57,18 +57,44 @@ class GRDBTestingViewController: UIViewController {
   }
   
   @IBAction func clickTestRelationship(_ sender: Any) {
-    let path = AppDelegate.current.storeURL.path
-    do {
-      let pool = try DatabasePool(path: path)
-      try pool.read { db in
-        if let chat = try _ZChat.fetchOne(db) {
-          try chat.populateRelationships(in: db)
-          print(chat.lastMessaage?.text as Any)
-        }
-      }
-    } catch {
-      print(error)
+//    let path = AppDelegate.current.storeURL.path
+//    do {
+//      let pool = try DatabasePool(path: path)
+//      try pool.read { db in
+//        if let chat = try _ZChat.fetchOne(db) {
+//          try chat.populateRelationships(in: db)
+//          print(chat.lastMessaage?.text as Any)
+//        }
+//      }
+//    } catch {
+//      print(error)
+//    }
+    
+    let context = AppDelegate.current.persistentContainer.viewContext
+    
+    let message = Message(context: context)
+    message.messageID = 1
+    message.content = Data()
+    
+    for messageID in 2...3 {
+      let reply = ThreadReply(context: context)
+      reply.messageID = Int64(messageID)
+      reply.rootMessage = message
     }
+    
+    try! context.save()
+    
+    print(message.replies as Any)
+    
+//    let newReply = ThreadReply(context: context)
+//    newReply.messageID = 4
+//    newReply.rootMessage = message
+//    
+//    try! context.save()
+    
+    message.replies = NSSet(array: message.replies!.filter({ ($0 as! ThreadReply).messageID != 3 }))
+    
+    try! context.save()
   }
   
   @IBAction func clickAddChatWithUsers(_ sender: Any) {
@@ -130,9 +156,9 @@ class GRDBTestingViewController: UIViewController {
     try? context.save()
   }
   
+  let store = try! DemoStore()
   
   @IBAction func clickGRDBInit(_ sender: Any) {
-    let store = try! DemoStore()
     
     let chats = try! store.pool.read { db in
       try _ZChat.fetchAll(db)
@@ -141,5 +167,28 @@ class GRDBTestingViewController: UIViewController {
     print(chats.count)
   }
   
+  @IBAction func clickAddGRDBMessage(_ sender: Any) {
+    try! store.pool.write { db in
+      let message = _ZMessage()
+      message.messageID = 1
+      message.text = "hello world"
+      try message.create(in: db, context: store.database)
+      // after create, the message can only have a primary key, so here must create first.
+      
+      let reply1 = ZThreadReply()
+      reply1.messageID = 2
+      reply1.rootMessage = message
+      try reply1.create(in: db, context: store.database)
+    }
+    
+    try! store.pool.read({ db in
+      var request = FetchRequest<_ZMessage>.init(prediction: _ZMessage.filter(_ZMessage.Column.messageID == 1))
+      request.prefetchingRelationships = [_ZMessage.repliesRelationship.relationshipName]
+      
+      if let message = try request.fetchOne(db) {
+        print(message.replies as Any)
+      }
+    })
+  }
   
 }

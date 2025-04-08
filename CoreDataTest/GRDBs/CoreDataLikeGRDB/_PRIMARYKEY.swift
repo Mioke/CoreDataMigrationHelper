@@ -43,18 +43,14 @@ extension _PRIMARYKEY: PersistableRecord {
 }
 
 extension _PRIMARYKEY {
-  static func bumpPrimaryKey(in db: Database, coreDataModelName: String, count: Int64 = 1) throws -> (pk: Int64, ent: Int64) {
-    if var existing = try filter(Column._NAME == coreDataModelName).fetchOne(db) {
-      let next = existing._MAX + count
-      existing._MAX = next
-      try existing.update(db)
-      return (next, existing._ENT)
-    } else {
-      let ent = try nextENT(in: db)
-      let key = _PRIMARYKEY(_ENT: ent, _NAME: coreDataModelName, _MAX: 1)
-      try key.insert(db, onConflict: .fail)
-      return (key._MAX, key._ENT)
+  static func bumpPrimaryKey(in db: Database, ent: Int64, count: Int64 = 1) throws -> (pk: Int64, ent: Int64) {
+    guard var existing = try filter(Column._ENT == ent).fetchOne(db) else {
+      throw SeaTalkDatabase.Exception.entityNotFound(ENT: ent, name: nil)
     }
+    let next = existing._MAX + count
+    existing._MAX = next
+    try existing.update(db)
+    return (next, existing._ENT)
   }
   
   static func ENT(of coreDataModelName: String, in db: Database) throws -> Int64? {

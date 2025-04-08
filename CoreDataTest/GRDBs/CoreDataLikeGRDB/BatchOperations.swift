@@ -8,6 +8,8 @@
 import Foundation
 import GRDB
 
+// NOTE: - Be careful using different kind of transaction type: `deffered`, `exclusive`, `immediately`
+
 public protocol BatchOperationRequest {
   var notifyChanges: Bool { get set }
 }

@@ -39,8 +39,12 @@ class CoreDataMigrator {
       }
       
       // create tables and indicies as primary version
-      let primaryModels = seatalkDB.models.filter {
-        return $0.introducedVersion == initiateVersion
+      let primaryModels = seatalkDB.models.filter { model in
+        // TODO: if the model is deprecated, so the initial process can filter the model. But the following versions are hard to handle.
+//        if let deprecatedVersion = model.deprecatedVersion {
+//          return false
+//        }
+        return model.introducedVersion == initiateVersion
       }
       
       try primaryModels.forEach {
@@ -123,7 +127,7 @@ public struct TableMeta {
 public class SeaTalkDatabase {
   
   typealias ENT = Int
-  
+  // TODO: Should be moved to database.
   static let defaults = UserDefaults(suiteName: "com.seagroup.seatalk-database")!
   
   public var url: URL
@@ -148,6 +152,8 @@ public class SeaTalkDatabase {
     case error
     case modelRegisteringUnknownVersion
     case unregistered
+    case entityNotFound(ENT: Int64?, name: String?)
+    case relationshipObjectIsTemporary
   }
   
   public var state: State {
@@ -229,7 +235,10 @@ public class SeaTalkDatabase {
   }
   
   private func loadEntityMeta() throws {
-    
+    let records = try pool.read { try _PRIMARYKEY.fetchAll($0) }
+    for entity in records {
+      self.entityIndex.update(Int(entity._ENT), entity._NAME)
+    }
   }
   
   public func register(primaryVersion: Version, laterVersions: Set<Version>) throws {

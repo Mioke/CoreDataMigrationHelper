@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNl-21-rGH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNl-21-rGH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-Nb-eV4">
-                                <rect key="frame" x="16" y="136" width="141" height="35"/>
+                                <rect key="frame" x="16" y="195" width="141" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Insert Message"/>
                                 <connections>
@@ -25,7 +25,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjL-q3-FeT">
-                                <rect key="frame" x="228" y="136" width="149" height="35"/>
+                                <rect key="frame" x="228" y="195" width="149" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Check Migration"/>
                                 <connections>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-6n-wpP">
-                                <rect key="frame" x="222" y="186" width="155" height="35"/>
+                                <rect key="frame" x="222" y="245" width="155" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Staged Migration"/>
                                 <connections>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8e-14-egs">
-                                <rect key="frame" x="221" y="236" width="156" height="35"/>
+                                <rect key="frame" x="221" y="295" width="156" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Manual Migration"/>
                                 <connections>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-aS-vZa">
-                                <rect key="frame" x="197" y="286" width="180" height="35"/>
+                                <rect key="frame" x="197" y="345" width="180" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Pagination Migration"/>
                                 <connections>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-fa-pNC">
-                                <rect key="frame" x="16" y="186" width="190" height="35"/>
+                                <rect key="frame" x="16" y="245" width="190" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Lightweight Migration"/>
                                 <connections>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4e-Ex-eQT">
-                                <rect key="frame" x="16" y="236" width="142" height="35"/>
+                                <rect key="frame" x="16" y="295" width="142" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="User v1 to Load"/>
                                 <connections>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKS-SI-enO">
-                                <rect key="frame" x="16" y="286" width="120" height="35"/>
+                                <rect key="frame" x="16" y="345" width="120" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Check Trace"/>
                                 <connections>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkc-5E-iWE">
-                                <rect key="frame" x="16" y="499" width="241" height="35"/>
+                                <rect key="frame" x="16" y="558" width="241" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Insert manual migration data"/>
                                 <connections>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrX-5B-NkG">
-                                <rect key="frame" x="68.666666666666686" y="363" width="256" height="128"/>
+                                <rect key="frame" x="68.666666666666686" y="422" width="256" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="XSj-mY-SY4"/>
@@ -99,7 +99,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVU-Jv-hJu">
-                                <rect key="frame" x="16" y="542" width="195" height="35"/>
+                                <rect key="frame" x="16" y="601" width="195" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="start manual migration"/>
                                 <connections>
@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNK-sq-I3W">
-                                <rect key="frame" x="16" y="585" width="106" height="35"/>
+                                <rect key="frame" x="16" y="644" width="106" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Read meta"/>
                                 <connections>
@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98y-HS-NLn">
-                                <rect key="frame" x="16" y="103" width="93" height="35"/>
+                                <rect key="frame" x="16" y="162" width="93" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Open DB"/>
                                 <connections>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCw-2T-rQD">
-                                <rect key="frame" x="122" y="103" width="149" height="35"/>
+                                <rect key="frame" x="122" y="162" width="149" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Temp DB"/>
                                 <connections>
@@ -178,7 +178,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGe-Yu-JVk">
-                                <rect key="frame" x="16" y="146" width="154" height="35"/>
+                                <rect key="frame" x="16" y="205" width="154" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Test Relationship"/>
                                 <connections>
@@ -186,7 +186,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C21-cH-vzT">
-                                <rect key="frame" x="178" y="146" width="177" height="35"/>
+                                <rect key="frame" x="178" y="205" width="177" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add Chat with users"/>
                                 <connections>
@@ -194,7 +194,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-gB-aRX">
-                                <rect key="frame" x="16" y="189" width="120" height="35"/>
+                                <rect key="frame" x="16" y="248" width="120" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Query Chats"/>
                                 <connections>
@@ -202,7 +202,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HQ-cg-l8b">
-                                <rect key="frame" x="144" y="189" width="95" height="35"/>
+                                <rect key="frame" x="144" y="248" width="95" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add User"/>
                                 <connections>
@@ -210,11 +210,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LD-Yq-gQr">
-                                <rect key="frame" x="16" y="245" width="181" height="35"/>
+                                <rect key="frame" x="16" y="304" width="181" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SeaTalkDatabase init"/>
                                 <connections>
                                     <action selector="clickGRDBInit:" destination="a46-po-lFN" eventType="touchUpInside" id="laZ-Kk-RBq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoQ-M1-SEH">
+                                <rect key="frame" x="16" y="347" width="177.66666666666666" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add GRDB Message"/>
+                                <connections>
+                                    <action selector="clickAddGRDBMessage:" destination="a46-po-lFN" eventType="touchUpInside" id="kRx-XD-CJL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -228,7 +236,9 @@
                             <constraint firstItem="zCw-2T-rQD" firstAttribute="centerY" secondItem="98y-HS-NLn" secondAttribute="centerY" id="7Xy-GJ-oJv"/>
                             <constraint firstItem="Pgv-gB-aRX" firstAttribute="leading" secondItem="AGe-Yu-JVk" secondAttribute="leading" id="DQg-Ff-LWd"/>
                             <constraint firstItem="98y-HS-NLn" firstAttribute="top" secondItem="RFa-3Q-6jM" secondAttribute="top" id="Gq9-uo-Yfb"/>
+                            <constraint firstItem="KoQ-M1-SEH" firstAttribute="top" secondItem="8LD-Yq-gQr" secondAttribute="bottom" constant="8" symbolic="YES" id="OIk-SY-Tx9"/>
                             <constraint firstItem="AGe-Yu-JVk" firstAttribute="top" secondItem="98y-HS-NLn" secondAttribute="bottom" constant="8" symbolic="YES" id="Vyh-6Y-xoJ"/>
+                            <constraint firstItem="KoQ-M1-SEH" firstAttribute="leading" secondItem="8LD-Yq-gQr" secondAttribute="leading" id="Wxu-M5-EIB"/>
                             <constraint firstItem="8LD-Yq-gQr" firstAttribute="leading" secondItem="Pgv-gB-aRX" secondAttribute="leading" id="Xee-iW-LWN"/>
                             <constraint firstItem="98y-HS-NLn" firstAttribute="leading" secondItem="RFa-3Q-6jM" secondAttribute="leading" constant="16" id="cLX-JV-KYV"/>
                             <constraint firstItem="AGe-Yu-JVk" firstAttribute="leading" secondItem="98y-HS-NLn" secondAttribute="leading" id="pwY-LS-5xA"/>
@@ -252,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="exR-ep-d01">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8q-T5-M9f">
@@ -381,7 +391,7 @@
             <objects>
                 <navigationController id="bNl-21-rGH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KGU-uL-CV2">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -401,7 +411,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Olg-6V-1ks">
-                                <rect key="frame" x="15" y="115" width="143" height="35"/>
+                                <rect key="frame" x="15" y="174" width="143" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Open Database"/>
                                 <connections>
@@ -409,7 +419,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khv-0q-uSX">
-                                <rect key="frame" x="16" y="172" width="68" height="35"/>
+                                <rect key="frame" x="16" y="231" width="68" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Insert"/>
                                 <connections>
@@ -417,7 +427,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkE-oK-jG4">
-                                <rect key="frame" x="16" y="227" width="78" height="35"/>
+                                <rect key="frame" x="16" y="286" width="78" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Search"/>
                                 <connections>

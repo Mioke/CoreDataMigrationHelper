@@ -10,6 +10,7 @@
 		175EE3DBAC0055B03C9022FC /* Pods_CoreDataTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA9D24B6120F9CD569D86DD /* Pods_CoreDataTest.framework */; };
 		AB024C8B2D55DBDD008A85B6 /* SeaTalkDatabaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB024C8A2D55DBDD008A85B6 /* SeaTalkDatabaseRecord.swift */; };
 		AB024C912D56F101008A85B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB024C902D56F101008A85B6 /* User.swift */; };
+		AB08E5CB2D9E739F00A198AF /* TableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E5CA2D9E739900A198AF /* TableUtils.swift */; };
 		AB12D9662D8AC79600333CB7 /* EntityMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12D9652D8AC79600333CB7 /* EntityMeta.swift */; };
 		AB12D9692D95219C00333CB7 /* BidirectionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12D9682D95219C00333CB7 /* BidirectionDictionary.swift */; };
 		AB12D96B2D969A8100333CB7 /* ThreadReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12D96A2D969A8100333CB7 /* ThreadReply.swift */; };
@@ -80,6 +81,8 @@
 		AB024C8A2D55DBDD008A85B6 /* SeaTalkDatabaseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaTalkDatabaseRecord.swift; sourceTree = "<group>"; };
 		AB024C8F2D560F97008A85B6 /* CoreDataTest v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataTest v5.xcdatamodel"; sourceTree = "<group>"; };
 		AB024C902D56F101008A85B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AB08E5CA2D9E739900A198AF /* TableUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUtils.swift; sourceTree = "<group>"; };
+		AB08E5CC2D9E9E8C00A198AF /* CoreDataTest v8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataTest v8.xcdatamodel"; sourceTree = "<group>"; };
 		AB12D9652D8AC79600333CB7 /* EntityMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMeta.swift; sourceTree = "<group>"; };
 		AB12D9682D95219C00333CB7 /* BidirectionDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionDictionary.swift; sourceTree = "<group>"; };
 		AB12D96A2D969A8100333CB7 /* ThreadReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadReply.swift; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 		AB12D9672D95217100333CB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AB08E5CA2D9E739900A198AF /* TableUtils.swift */,
 				AB12D9682D95219C00333CB7 /* BidirectionDictionary.swift */,
 			);
 			path = Utils;
@@ -543,9 +547,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoreDataTest/Pods-CoreDataTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoreDataTest/Pods-CoreDataTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -560,9 +568,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoreDataTest-CoreDataTestUITests/Pods-CoreDataTest-CoreDataTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CoreDataTest-CoreDataTestUITests/Pods-CoreDataTest-CoreDataTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -596,6 +608,7 @@
 				AB754D042C05F00B00E09C4D /* PostCheckStage.swift in Sources */,
 				AB138A692BC3C86000C40A94 /* AppDelegate.swift in Sources */,
 				AB64250E2CA69FC200BBFAE2 /* SQLTrace.swift in Sources */,
+				AB08E5CB2D9E739F00A198AF /* TableUtils.swift in Sources */,
 				AB14DC522D7ED7D2002EDE0C /* DBExecutor.swift in Sources */,
 				AB138A6B2BC3C86000C40A94 /* SceneDelegate.swift in Sources */,
 				AB754D062C05F2B700E09C4D /* CleanStage.swift in Sources */,
@@ -968,6 +981,7 @@
 		AB138A712BC3C86000C40A94 /* CoreDataTest.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				AB08E5CC2D9E9E8C00A198AF /* CoreDataTest v8.xcdatamodel */,
 				AB14DC532D7EDE30002EDE0C /* CoreDataTest v7.xcdatamodel */,
 				AB14DC4E2D7E929A002EDE0C /* CoreDataTest v6.xcdatamodel */,
 				AB024C8F2D560F97008A85B6 /* CoreDataTest v5.xcdatamodel */,
@@ -976,7 +990,7 @@
 				AB138A9B2BC3CC0E00C40A94 /* CoreDataTest v2.xcdatamodel */,
 				AB138A722BC3C86000C40A94 /* CoreDataTest.xcdatamodel */,
 			);
-			currentVersion = AB14DC532D7EDE30002EDE0C /* CoreDataTest v7.xcdatamodel */;
+			currentVersion = AB08E5CC2D9E9E8C00A198AF /* CoreDataTest v8.xcdatamodel */;
 			path = CoreDataTest.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
